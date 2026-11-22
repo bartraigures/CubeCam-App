@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CubeCam</title>
+<meta name="description" content="An iPhone camera that keeps Apple's processing and finishes each photograph with a film grade and fine grain, which you see in the viewfinder as you shoot.">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="site gutter">
+  <a class="name" href="./"><img src="img/icon.png" alt="" width="30" height="30">CubeCam</a>
+  <nav><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+</header>
+
+<main>
+<div class="opening gutter">
+  <div>
+    <h1>CubeCam</h1>
+    <p class="lead">CubeCam is a camera app for iPhone that finishes each photograph with a film grade and fine grain, while leaving everything Apple's camera does in place.</p>
+  </div>
+  <div class="text">
+    <p>The iPhone camera is very good at what it does. Deep Fusion, Smart HDR and the Photonic Engine combine several exposures into one clean, detailed picture, but the result has a recognisable digital look, and the usual ways of changing it have drawbacks. Filters tend to flatten the image and lose much of what made it good. Shooting RAW and grading every frame afterwards gives the best results, but it takes time that most pictures don't deserve.</p>
+    <p>CubeCam takes the photograph Apple's camera has already finished and grades it the way a colourist would, with deep, quiet blacks, highlights that roll off gently, colours that sit together, and a little grain. The grade is visible in the viewfinder as you compose, and it is what gets saved.</p>
+  </div>
+</div>
+
+<section class="darkroom gutter" id="looks">
+  <div class="inner chooser">
+    <div class="picture">
+      <div class="compare" id="cmp" aria-label="The same photograph before and after. Drag across it to compare.">
+        <img id="cmpBefore" src="img/looks/beach-original.jpg" alt="The photograph as the camera made it" width="1200" height="800">
+        <div class="after"><img id="cmpAfter" src="img/looks/beach-sidestrand.jpg" alt="The same photograph with the chosen look" width="1200" height="800"></div>
+        <div class="bar"></div>
+        <span class="label l">As shot</span><span class="label r" id="cmpLabel">Sidestrand</span>
+      </div>
+      <p class="compare-note">Drag across the picture to compare it with the camera's own version, on the left. <button id="swapScene">Another photograph</button></p>
+    </div>
+    <ol class="look-list" id="list" aria-label="Looks"></ol>
+  </div>
+</section>
+
+<section class="text measure gutter">
+  <h2>How the looks work</h2>
+  <p>Each look is built on a real film grade of the kind used to finish feature films, rather than something designed to look nostalgic on a phone screen. Every one is timed so that a mid-grey card stays exactly where Apple exposed it, which means changing the look never makes the picture darker or brighter. What changes is how the tones are drawn, how the colours relate to each other, and the grain.</p>
+  <p>The looks are deliberately subtle. Colour looks are mixed back with Apple's image, and an Amount control fades any of them further still. The two black and white looks are applied in full, since a half-strength black and white is only a washed-out colour photograph.</p>
+  <p>The grain is a fine speck at every pixel, strongest in the mid-tones and lighter in deep shadow and bright highlights, much as it is on film. At normal viewing size it reads as texture, and when you zoom in it stays crisp instead of breaking up into soft blotches.</p>
+  <p>The looks are named after small beaches on the Norfolk, Suffolk and Cornish coasts.</p>
+
+  <h2>The camera</h2>
+  <p>The camera screen starts simple, with focal lengths, an exposure scale, the looks and the shutter. Since every photographer works differently, every button, slider and overlay can be moved, removed or added in a layout editor; only the shutter and the way into Settings stay put. The Manual layout, for example, puts a histogram, a level, manual focus and an exposure lock within reach of the thumb.</p>
+</section>
+
+<section class="screens gutter" aria-label="Screens">
+  <div class="row">
+    <figure><img src="img/shots/camera.jpg" alt="The camera screen in its default layout, showing a beach." width="600" height="1304" loading="lazy"><figcaption>The default layout.</figcaption></figure>
+    <figure><img src="img/shots/manual.jpg" alt="The Manual layout with a histogram, a level and a focus slider, with the sharp parts of the picture outlined in red." width="600" height="1304" loading="lazy"><figcaption>The Manual layout, focusing by hand with peaking.</figcaption></figure>
+    <figure><img src="img/shots/layout.jpg" alt="The layout editor: a plan of the camera screen with controls placed in slots, and a tray of others below." width="600" height="1304" loading="lazy"><figcaption>The layout editor.</figcaption></figure>
+  </div>
+</section>
+
+<section class="text measure gutter">
+  <p>The focal lengths run from 13 to 200 mm. Normally the iPhone chooses which of its cameras to use, switching to the main camera in poor light or to the ultra-wide for close work. Tapping the chosen focal length a second time locks CubeCam to that physical lens and stops the switching, which matters when you care how a particular lens draws.</p>
+  <p>Tapping the picture focuses and meters on that point. Manual focus has a near-to-far slider with focus peaking, which outlines the sharpest edges in colour as you focus, and the exposure lock holds through lens changes. On an iPhone with Camera Control, pressing the button takes the picture, and a light press brings zoom, exposure, focus and the look under the thumb.</p>
+  <p>The app is built to be quick. The camera is already running before the interface has finished drawing, the grade is applied on the graphics chip in the same pass as the viewfinder, and the shutter never waits for a photograph to finish saving.</p>
+
+  <h2>Keeping the original</h2>
+  <p>Choosing a look is a decision you may want to revisit. By default CubeCam saves each photograph as an edit with Apple's original underneath it, so Revert in the Photos app always takes you back. CubeCam's own viewer uses that original to try a different look on a photograph after the event, to make small adjustments, and to show how the picture was taken. With Apple ProRAW switched on, the RAW file is saved alongside, untouched.</p>
+
+  <h2>Making it your camera</h2>
+  <p>The iPhone has no setting for a default camera, but you can choose what opens from Camera Control, the Lock Screen, the Action button and Control Center. With CubeCam chosen in those places it opens straight away, even when the phone is locked. The <a href="guide.html#your-camera">guide</a> explains each one.</p>
+
+  <h2>Availability</h2>
+  <p>CubeCam is for iPhone with iOS 18 or later, and will be on the App Store soon. The <a href="guide.html">guide</a> covers everything it does, and the <a href="support.html">support page</a> answers the common questions.</p>
+</section>
+</main>
+
+<footer class="gutter"><span>CubeCam</span><span><a href="guide.html">Guide</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></span></footer>
+
+<script>
+const LOOKS = [
+  ["covehithe", "Covehithe", "Suffolk", "The nearest thing to a straight print, with clean, deep blacks and a little warmth in the highlights. A good default."],
+  ["shingle-street", "Shingle Street", "Suffolk", "Silvery and restrained, with the blue taken out of the sky. It suits hard summer light."],
+  ["sidestrand", "Sidestrand", "Norfolk", "Leans towards amber with the colour eased back, which works well for evenings, streetlights and interiors."],
+  ["hemmick", "Hemmick", "Cornwall", "A faint yellow-green in the mid-tones, reminiscent of colour film from the late seventies."],
+  ["pednvounder", "Pednvounder", "Cornwall", "Warm and soft with a coarser grain, and the most obviously filmic of the colour looks."],
+  ["pentreath", "Pentreath", "Cornwall", "Cooler, with cyan in the shadows and fresh greens, which flatters the sea and overcast days."],
+  ["trimingham", "Trimingham", "Norfolk", "Low contrast and muted, and kind to skin. The quietest of the set."],
+  ["benacre", "Benacre", "Suffolk", "Black and white with low contrast, soft and silvery, with the shadows left open."],
+  ["happisburgh", "Happisburgh", "Norfolk", "Black and white with real depth: rich blacks, crisp mid-tones, and skies darkened slightly, as a yellow filter would."],
+];
+let scene = "beach", look = "sidestrand";
+const $ = id => document.getElementById(id);
+function render() {
+  $("cmpBefore").src = `img/looks/${scene}-original.jpg`;
+  $("cmpAfter").src = `img/looks/${scene}-${look}.jpg`;
+  $("cmpLabel").textContent = LOOKS.find(l => l[0] === look)[1];
+  $("list").innerHTML = LOOKS.map(([k, n, c, d]) =>
+    `<li><button data-look="${k}" aria-pressed="${k === look}"><span class="n">${n}</span> <span class="c">${c}</span><span class="d">${d}</span></button></li>`).join("");
+}
+$("list").addEventListener("click", e => { const b = e.target.closest("[data-look]"); if (b) { look = b.dataset.look; render(); } });
+$("swapScene").addEventListener("click", () => { scene = scene === "beach" ? "field" : "beach"; render(); });
+const cmp = $("cmp");
+const cut = e => { const r = cmp.getBoundingClientRect(); cmp.style.setProperty("--cut", `${Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100))}%`); };
+cmp.addEventListener("pointerdown", e => { cmp.setPointerCapture(e.pointerId); cut(e); cmp.onpointermove = cut; });
+cmp.addEventListener("pointerup", () => { cmp.onpointermove = null; });
+for (const sc of ["beach", "field"]) for (const [k] of LOOKS) { const im = new Image(); im.src = `img/looks/${sc}-${k}.jpg`; }
+render();
+</script>
+</body>
+</html>
