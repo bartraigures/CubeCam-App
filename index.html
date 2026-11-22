@@ -31,12 +31,13 @@
   <div class="inner chooser">
     <div class="picture">
       <div class="compare" id="cmp" aria-label="The same photograph before and after. Drag across it to compare.">
-        <img draggable="false" id="cmpBefore" src="img/looks/beach-original.jpg" alt="The photograph as the camera made it" width="1200" height="800">
-        <div class="after"><img draggable="false" id="cmpAfter" src="img/looks/beach-sidestrand.jpg" alt="The same photograph with the chosen look" width="1200" height="800"></div>
+        <img draggable="false" id="cmpBefore" src="img/looks/tree-original.jpg" alt="The photograph as the camera made it">
+        <div class="after"><img draggable="false" id="cmpAfter" src="img/looks/tree-covehithe.jpg" alt="The same photograph with the chosen look"></div>
         <div class="bar"></div>
-        <span class="label l">As shot</span><span class="label r" id="cmpLabel">Sidestrand</span>
+        <span class="label l">As shot</span><span class="label r" id="cmpLabel">Covehithe</span>
       </div>
-      <p class="compare-note">Drag across the picture to compare it with the camera's own version, on the left. <button id="swapScene">Another photograph</button></p>
+      <p class="compare-note">Drag across the picture to compare it with the camera's own version, on the left.</p>
+      <div class="scenes" id="scenes" aria-label="Photographs"></div>
     </div>
     <ol class="look-list" id="list" aria-label="Looks"></ol>
   </div>
@@ -90,23 +91,28 @@ const LOOKS = [
   ["benacre", "Benacre", "", "Black and white with low contrast, soft and silvery, with the shadows left open."],
   ["happisburgh", "Happisburgh", "", "Black and white with real depth: rich blacks, crisp mid-tones, and skies darkened slightly, as a yellow filter would."],
 ];
-let scene = "beach", look = "sidestrand";
+const SCENES = ["tree", "woods", "leaves", "beach", "field"];
+let scene = "tree", look = "covehithe";
 const $ = id => document.getElementById(id);
 function render() {
   $("cmpBefore").src = `img/looks/${scene}-original.jpg`;
   $("cmpAfter").src = `img/looks/${scene}-${look}.jpg`;
   $("cmpLabel").textContent = LOOKS.find(l => l[0] === look)[1];
+  document.querySelectorAll("#scenes button").forEach(b => b.setAttribute("aria-pressed", b.dataset.scene === scene));
   $("list").innerHTML = LOOKS.map(([k, n, c, d]) =>
     `<li><button data-look="${k}" aria-pressed="${k === look}"><span class="n">${n}</span><span class="d">${d}</span></button></li>`).join("");
 }
 $("list").addEventListener("click", e => { const b = e.target.closest("[data-look]"); if (b) { look = b.dataset.look; render(); } });
-$("swapScene").addEventListener("click", () => { scene = scene === "beach" ? "field" : "beach"; render(); });
+$("scenes").innerHTML = SCENES.map(sc => `<button data-scene="${sc}" aria-label="Photograph: ${sc}"><img src="img/looks/${sc}-original.jpg" alt="" draggable="false"></button>`).join("");
+$("scenes").addEventListener("click", e => { const b = e.target.closest("[data-scene]"); if (b) { scene = b.dataset.scene; render(); preload(); } });
+// Fetch the looks for the photograph on show, so switching looks is instant.
+function preload() { for (const [k] of LOOKS) { const im = new Image(); im.src = `img/looks/${scene}-${k}.jpg`; } }
 const cmp = $("cmp");
 const cut = e => { const r = cmp.getBoundingClientRect(); cmp.style.setProperty("--cut", `${Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100))}%`); };
 cmp.addEventListener("pointerdown", e => { e.preventDefault(); cmp.setPointerCapture(e.pointerId); cut(e); cmp.onpointermove = cut; });
 cmp.addEventListener("dragstart", e => e.preventDefault());
 cmp.addEventListener("pointerup", () => { cmp.onpointermove = null; });
-for (const sc of ["beach", "field"]) for (const [k] of LOOKS) { const im = new Image(); im.src = `img/looks/${sc}-${k}.jpg`; }
+preload();
 render();
 </script>
 </body>

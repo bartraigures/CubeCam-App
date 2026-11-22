@@ -66,7 +66,9 @@ header.site nav a:hover, header.site nav a[aria-current] { color: var(--ink); }
 .darkroom p { color: var(--dark-quiet); }
 .darkroom a { color: #F2A27C; }
 .compare { position: relative; overflow: hidden; background: #000; cursor: ew-resize; touch-action: none; user-select: none; -webkit-user-select: none; border-radius: 4px; }
-.compare img { width: 100%; -webkit-user-drag: none; user-select: none; -webkit-user-select: none; pointer-events: none; }
+/* The before picture sets the size: landscape fills the width, portrait is held to the screen height. */
+.compare { width: fit-content; max-width: 100%; margin: 0 auto; }
+.compare img { width: auto; max-width: 100%; max-height: 82vh; -webkit-user-drag: none; user-select: none; -webkit-user-select: none; pointer-events: none; }
 .compare .after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--cut, 50%)); }
 .compare .after img { width: 100%; height: 100%; object-fit: cover; }
 .compare .bar { position: absolute; top: 0; bottom: 0; left: var(--cut, 50%); width: 1px; background: rgba(255,255,255,.9); pointer-events: none; }
@@ -76,6 +78,12 @@ header.site nav a:hover, header.site nav a[aria-current] { color: var(--ink); }
 .compare-note button { font: inherit; background: none; border: 0; padding: 0; color: #F2A27C; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .chooser { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 44px; align-items: start; }
 .chooser .picture { position: sticky; top: 24px; }
+.scenes { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.scenes button { width: 54px; height: 54px; padding: 0; border: 0; border-radius: 3px; overflow: hidden; cursor: pointer; opacity: .55; outline: 1px solid transparent; outline-offset: 3px; background: #000; }
+.scenes button[aria-pressed="true"] { opacity: 1; outline-color: var(--dark-ink); }
+.scenes button:hover { opacity: .9; }
+.scenes button:focus-visible { outline-color: var(--dark-ink); }
+.scenes img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 900px) { .chooser { grid-template-columns: 1fr; gap: 28px; } .chooser .picture { position: static; } }
 .look-list { list-style: none; margin: 0; padding: 0; }
 .look-list li { margin: 0; border-top: 1px solid #2B2A27; }
