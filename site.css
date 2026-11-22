@@ -66,7 +66,7 @@ header.site nav a:hover, header.site nav a[aria-current] { color: var(--ink); }
 .darkroom p { color: var(--dark-quiet); }
 .darkroom a { color: #F2A27C; }
 .compare { position: relative; overflow: hidden; background: #000; cursor: ew-resize; touch-action: none; user-select: none; -webkit-user-select: none; border-radius: 4px; }
-.compare img { width: 100%; }
+.compare img { width: 100%; -webkit-user-drag: none; user-select: none; -webkit-user-select: none; pointer-events: none; }
 .compare .after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--cut, 50%)); }
 .compare .after img { width: 100%; height: 100%; object-fit: cover; }
 .compare .bar { position: absolute; top: 0; bottom: 0; left: var(--cut, 50%); width: 1px; background: rgba(255,255,255,.9); pointer-events: none; }
