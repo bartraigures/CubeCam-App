@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>More looks for CubeCam</title>
+<meta name="description" content="Extra looks for CubeCam, free to download as .cube files. They also work in any app that takes a 3D LUT.">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="site.css">
+<style>
+  .look { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 44px; align-items: start; }
+  .look + .look { margin-top: 64px; }
+  .look h2 { margin-top: 0; }
+  .look .scenes { display: flex; gap: 8px; margin-top: 12px; }
+  .look .scenes button { width: 54px; height: 72px; padding: 0; border: 2px solid transparent; border-radius: 4px; overflow: hidden; background: none; cursor: pointer; }
+  .look .scenes button[aria-pressed="true"] { border-color: #F2A27C; }
+  .look .scenes img { width: 100%; height: 100%; object-fit: cover; }
+  .download { display: inline-block; font: 600 16px var(--sans); background: var(--dark-ink); color: var(--dark) !important; text-decoration: none;
+    padding: 10px 18px; border-radius: 8px; margin: 6px 0 4px; }
+  .download:focus-visible { outline: 2px solid #F2A27C; outline-offset: 3px; }
+  .filenote { font: 14px var(--sans); color: var(--dark-quiet); }
+  @media (max-width: 820px) { .look { grid-template-columns: 1fr; gap: 20px; } }
+</style>
+</head>
+<body>
+<header class="site gutter">
+  <a class="name" href="./"><img src="img/icon.png" alt="" width="30" height="30">CubeCam</a>
+  <nav><a href="looks.html" aria-current="page">Looks</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+</header>
+<main>
+  <section class="text measure gutter" style="padding-bottom: 32px">
+    <h1 style="font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 3.8rem); margin: 24px 0 0.4em; letter-spacing: -0.02em;">More looks</h1>
+    <p>CubeCam comes with nine looks. These are extra ones, made the same way, free to download and use. Each is a .cube file, so it works in CubeCam and in any other app that takes a 3D LUT, such as photo and video editors on a computer.</p>
+    <p>To add one to CubeCam, download it on your iPhone, then in CubeCam go to Settings and, under Your looks, tap Import a .cube file. Leave Input on Standard picture. The <a href="guide.html#your-looks">guide</a> has the details.</p>
+  </section>
+
+  <section class="darkroom gutter">
+    <div class="inner">
+      <article class="look" id="lansallos">
+        <div class="picture">
+          <div class="compare" data-look="lansallos" aria-label="The same photograph before and after Lansallos. Drag across it to compare.">
+            <img draggable="false" class="before" src="img/looks/woods-original.jpg" alt="The photograph as the camera made it">
+            <div class="after"><img draggable="false" src="img/extra/lansallos-woods.jpg" alt="The same photograph with Lansallos"></div>
+            <div class="bar"></div>
+            <span class="label l">As shot</span><span class="label r">Lansallos</span>
+          </div>
+          <div class="scenes" aria-label="Photographs">
+            <button data-scene="woods" aria-pressed="true" aria-label="Photograph: woods"><img src="img/looks/woods-original.jpg" alt=""></button>
+            <button data-scene="leaves" aria-pressed="false" aria-label="Photograph: leaves"><img src="img/looks/leaves-original.jpg" alt=""></button>
+            <button data-scene="tree" aria-pressed="false" aria-label="Photograph: tree"><img src="img/looks/tree-original.jpg" alt=""></button>
+          </div>
+        </div>
+        <div>
+          <h2>Lansallos</h2>
+          <p>For woods and autumn. Greens go quiet, towards olive and sage, so the turning leaves and the bracken glow against them. The shadows are deep but soft, and the light is creamy rather than white.</p>
+          <p>It's a strong look, so in CubeCam try it at around 70 to 85% to start with.</p>
+          <a class="download" href="looks/Lansallos.cube" download>Download Lansallos.cube</a>
+          <p class="filenote">33-point 3D LUT for finished pictures (sRGB / Rec.709), about 1 MB.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="text measure gutter" style="padding-top: 40px">
+    <p>Each look here is made for CubeCam and is ours to give away. Use them on your own photographs and videos however you like; please don't sell them or pass them off as your own.</p>
+  </section>
+</main>
+<footer class="gutter"><span>CubeCam</span><span><a href="./">Home</a> · <a href="looks.html">Looks</a> · <a href="guide.html">Guide</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></span></footer>
+<script>
+document.querySelectorAll('.look').forEach(look => {
+  const cmp = look.querySelector('.compare'), name = cmp.dataset.look;
+  const before = cmp.querySelector('img.before'), after = cmp.querySelector('.after img');
+  look.querySelector('.scenes').addEventListener('click', e => {
+    const b = e.target.closest('[data-scene]'); if (!b) return;
+    before.src = `img/looks/${b.dataset.scene}-original.jpg`;
+    after.src = `img/extra/${name}-${b.dataset.scene}.jpg`;
+    look.querySelectorAll('.scenes button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  });
+  const cut = e => { const r = cmp.getBoundingClientRect(); cmp.style.setProperty('--cut', `${Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100))}%`); };
+  cmp.addEventListener('pointerdown', e => { e.preventDefault(); cmp.setPointerCapture(e.pointerId); cut(e); cmp.onpointermove = cut; });
+  cmp.addEventListener('dragstart', e => e.preventDefault());
+  cmp.addEventListener('pointerup', () => { cmp.onpointermove = null; });
+});
+</script>
+</body>
+</html>
