@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CubeCam guide</title>
-<meta name="description" content="How to use CubeCam: setting it as your camera, the controls, looks and grain, focus and exposure, Camera Control, the layout editor, saving and the photo viewer.">
+<meta name="description" content="How to use CubeCam: setting it as your camera, the controls, looks and grain, importing your own looks, focus and exposure, Camera Control, the layout editor, saving, the photo viewer and the colour editor.">
 <link rel="icon" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="site.css">
@@ -21,6 +21,7 @@
     <li><a href="#your-camera">Making CubeCam your camera</a></li>
     <li><a href="#screen">The camera screen</a></li>
     <li><a href="#looks">Looks and grain</a></li>
+    <li><a href="#your-looks">Importing your own looks</a></li>
     <li><a href="#lenses">Lenses and lens lock</a></li>
     <li><a href="#exposure">Exposure</a></li>
     <li><a href="#focus">Focus and focus peaking</a></li>
@@ -29,13 +30,14 @@
     <li><a href="#more">Flash, timer and the rest</a></li>
     <li><a href="#saving">Saving and originals</a></li>
     <li><a href="#viewer">The photo viewer</a></li>
+    <li><a href="#colours">Editing colours</a></li>
     <li><a href="#locked">Shooting with the phone locked</a></li>
     <li><a href="#settings">Settings</a></li>
     <li><a href="#suggestions">Some suggestions</a></li>
   </ul>
   <article>
   <h1>Using CubeCam</h1>
-  <p class="lead">This guide covers everything CubeCam does, from first launch to editing photographs after the event. Most of it can be skipped until you need it; the first two sections are worth reading straight away.</p>
+  <p class="lead">This guide covers everything CubeCam does, from first launch to reshaping a photograph's colours after the event. Most of it can be skipped until you need it; the first two sections are worth reading straight away.</p>
 
 
   <h2 id="start">First launch</h2>
@@ -110,6 +112,19 @@
   <h3>Grain</h3>
   <p>The grain is a fine speck at each pixel, heaviest in the mid-tones, which keeps it crisp when you zoom in and subtle at normal viewing size. The black and white looks have neutral grey grain with no colour in it. Settings has a switch to turn grain off, a Grain amount slider from 0 to 200% (where 100% is each look's own amount), and a choice of whether grain is shown in the viewfinder.</p>
 
+  <h2 id="your-looks">Importing your own looks</h2>
+  <p>As well as its own nine looks, CubeCam can use any 3D LUT saved as a .cube file. An imported look works just like the built-in ones: in the viewfinder, on saved photographs, in the photo viewer and with the phone locked.</p>
+  <h3>Where to find them</h3>
+  <p>A good place to start is the <a href="https://gmic.eu/color_presets/bw_sample_11.html#browse">G'MIC colour presets</a>, a free collection of over a thousand looks with a before-and-after for each, including a strong set of black and white ones. Each set can be downloaded as .cube files. The presets come from many different authors, so check a set's own terms if you want to use it for anything beyond your own photographs.</p>
+  <h3>Adding one</h3>
+  <ol>
+    <li>Download the .cube file to your iPhone. If it arrives as a .zip, tap it in the Files app to unpack it.</li>
+    <li>In CubeCam, open Settings and, under Your looks, tap Import a .cube file. Or open the .cube from Files, Mail or AirDrop and choose CubeCam.</li>
+    <li>CubeCam shows the look on whatever the camera is pointing at. Press and hold the picture to see it without the look.</li>
+    <li>Give it a name, check the Input, set the Strength and Grain, and tap Save.</li>
+  </ol>
+  <p>Input tells CubeCam what kind of picture the LUT was made for. Most creative looks, including the G'MIC presets, are made for finished pictures, so leave it on Standard picture. Choose one of the log formats only if the LUT was made for log footage from a particular camera; CubeCam then converts the photo to that format first. Strength mixes the look with Apple's picture, and 70 to 85% is often nicer than full strength. An imported look can be renamed, changed or deleted later from the same list in Settings, and photographs already taken with it keep their look.</p>
+
   <h2 id="lenses">Lenses and lens lock</h2>
   <p>On an iPhone 17 Pro, 13 mm is the ultra-wide camera, 24 mm is the main camera, and 28, 35 and 48 mm are taken from the main camera's sensor. 100 mm is the telephoto camera, and 200 mm is taken from the telephoto's sensor. Other iPhones offer whichever of these their cameras allow.</p>
   <p>Left to itself, the iPhone switches between its cameras as conditions change, using the main camera when the light is poor or the ultra-wide for very close subjects, even when another focal length has been chosen. Tapping the selected focal length a second time locks CubeCam to that physical lens. A small padlock appears on it, the readout shows LOCKED, and the iPhone stops switching. Tapping it again releases the lock. Choosing a different focal length while locked moves the lock to the new lens. The same setting is in Settings under Lenses.</p>
@@ -155,23 +170,39 @@
 
   <h2 id="viewer">The photo viewer</h2>
   <p>The last-photo button opens CubeCam's own viewer, which shows the photographs CubeCam has taken, newest first. The first time it opens, it asks to read your library. Choosing Limited or Full Access is fine, as CubeCam only ever shows its own photographs, but choosing Don't Allow also stops CubeCam saving.</p>
-  <p>The strip of thumbnails moves between photographs, and holding a finger on the picture shows Apple's original. Below the picture are three panels.</p>
+  <p>The strip of thumbnails moves between photographs, and holding a finger on the picture shows Apple's original. Pinch to zoom in, drag to move around, and double-tap to zoom in on a spot or back out again. Below the picture are three panels.</p>
   <ul>
     <li><strong>Look</strong> tries any of the looks on the photograph, made from Apple's original, with an Amount slider.</li>
     <li><strong>Adjust</strong> has exposure, contrast, shadows, warmth, saturation and grain. Double-tapping a slider's row returns it to zero.</li>
     <li><strong>Info</strong> shows the look, amount and grain the photograph was saved with, together with the camera, focal length, aperture, shutter speed, ISO, exposure compensation, flash, size and date.</li>
   </ul>
-  <p>Any change brings up Save and Cancel. Save writes the change into the photograph as a new revertible edit; each time, iOS asks for permission for CubeCam to modify the photo, which is how Apple protects photographs from apps. Revert to original goes back to Apple's original, and there are also buttons to share the photograph and to open it in Photos.</p>
+  <p>Any change brings up Save and Cancel. Save writes the change into the photograph as a new revertible edit; each time, iOS asks for permission for CubeCam to modify the photo, which is how Apple protects photographs from apps. Revert to original goes back to Apple's original, and there are also buttons to share the photograph and to open it in Photos. The button with a hexagon of dots, at the top, opens the photograph in the <a href="#colours">colour editor</a>.</p>
   <p>Changing the look needs Apple's original, so it is only possible for photographs saved with Keep original switched on. Photographs saved without it can still be adjusted.</p>
+
+  <h2 id="colours">Editing colours</h2>
+  <p>The colour editor changes a photograph's colours directly, rather than with sliders for the whole picture. CubeCam finds the main colours in the photograph, and when you move one, every similar colour follows it, the rest of the picture staying as it was. It opens from the button with a hexagon of dots at the top of the photo viewer, and Done goes back to the viewer.</p>
+  <h3>Moving a colour</h3>
+  <p>Touch a colour in the photograph and slide. Sliding sideways turns its hue, so a green can become more yellow or more blue, and sliding up or down makes it lighter or darker. For greys, whites and other colours without much hue, sliding sideways makes them warmer or cooler instead. Pinch with two fingers to zoom into the photograph and move around it, or double-tap to zoom in on a spot; when zoomed, the same slide makes a finer change.</p>
+  <p>Below the photograph, Colours in this photo shows the main colours as dots on a colour wheel, with a faint cloud of every colour in the picture behind them. Dragging a dot moves that colour, and the cloud bends with it. Where dots sit close together, pinch to zoom into the wheel and they spread apart; double-tap to zoom in on the colours or back out.</p>
+  <p>The colour you last touched has its own sliders: Hue and Richness (or Warmth, for greys), Brightness, and Reach, which sets how far the change spreads to neighbouring colours. Your moves lists everything changed so far, each with its own undo, and Reset all starts again. Holding Original at the top shows the photograph as it was.</p>
+  <h3>Borrowing colour</h3>
+  <p>Borrow colour takes the colours of another photograph from your library and matches each main colour in this one to its nearest counterpart, so a grey afternoon can take on the colours of a golden evening. Amount sets how far to go, Keep brightness leaves the light and shade alone, and each pair can be switched off. Use these colours turns the pairs into ordinary moves you can fine-tune; only colour is taken, never the content of the other photograph.</p>
+  <h3>Saving</h3>
+  <p>Save offers three things.</p>
+  <ul>
+    <li><strong>Save to this photo</strong> writes the colours into the photograph as part of its revertible edit, as the viewer does. The colour changes stay with the photograph: they are kept if you later change its look in the viewer, open again where you left them, and Revert to original removes them along with everything else. Photographs saved without Keep original can't be edited this way, so for those this becomes <strong>Save a copy to Photos</strong>, which adds a new photograph instead.</li>
+    <li><strong>Save as a look</strong> turns the change into a look of its own, which joins your looks for the viewfinder and for other photographs.</li>
+    <li><strong>Export .cube file</strong> saves it as a 3D LUT for other apps: 33-point works almost everywhere, 65-point is finer, for grading software on a computer.</li>
+  </ul>
 
   <h2 id="locked">Shooting with the phone locked</h2>
   <p>With CubeCam chosen for Camera Control, the Lock Screen or the Action button, it opens immediately on a locked iPhone, with your look, layout and settings. iOS doesn't allow any camera app to save to the photo library while the phone is locked, so photographs taken this way are kept safely and moved into the library the next time CubeCam is opened with the phone unlocked. The last-photo button on the locked camera asks you to unlock the phone and opens CubeCam.</p>
 
   <h2 id="settings">Settings</h2>
-  <p>Settings opens with the camera layout, followed by the instructions for using CubeCam as your camera. The Look section holds the default look, Compare looks, Amount, and the grain controls. Capture has ProRAW, the resolution and what a tap on the screen does. Saving controls how the original is kept. Focus has focus peaking and its colour, and Lenses has the lens lock and whether the main camera starts at 24, 28 or 35 mm.</p>
+  <p>Settings opens with the camera layout, followed by the instructions for using CubeCam as your camera. The Look section holds the default look, Compare looks, Amount, and the grain controls, and Your looks is where <a href="#your-looks">imported looks</a> are added and managed. Capture has ProRAW, the resolution and what a tap on the screen does. Saving controls how the original is kept. Focus has focus peaking and its colour, and Lenses has the lens lock and whether the main camera starts at 24, 28 or 35 mm.</p>
 
   <h2 id="suggestions">Some suggestions</h2>
-  <p>For street photography, the Minimal layout with the lens locked at 28 or 35 mm keeps the screen clear and the drawing consistent. For slower, more careful work, the Manual layout brings the histogram, the level, focus peaking and the exposure lock together. Keeping originals as revertible edits costs nothing and leaves every look open to reconsider later. When choosing a default look, try them on a scene with skin and a few strong colours, since that is where the differences show. In black and white, Benacre suits soft, open light, and Happisburgh suits strong light and graphic subjects.</p>
+  <p>For street photography, the Minimal layout with the lens locked at 28 or 35 mm keeps the screen clear and the drawing consistent. For slower, more careful work, the Manual layout brings the histogram, the level, focus peaking and the exposure lock together. Keeping originals as revertible edits costs nothing and leaves every look open to reconsider later. When choosing a default look, try them on a scene with skin and a few strong colours, since that is where the differences show. In black and white, Benacre suits soft, open light, and Happisburgh suits strong light and graphic subjects. In the colour editor, small moves go a long way: a sky turned a few degrees towards cyan, or foliage made a little less rich, often does more than any look.</p>
   <p>If something doesn't behave as described here, the <a href="support.html">support page</a> may help.</p>
   </article>
 </main>
