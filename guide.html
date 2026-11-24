@@ -28,6 +28,7 @@
     <li><a href="#camera-control">Camera Control</a></li>
     <li><a href="#layout">Changing the layout</a></li>
     <li><a href="#more">Flash, timer and the rest</a></li>
+    <li><a href="#super-resolution">Super resolution</a></li>
     <li><a href="#saving">Saving and originals</a></li>
     <li><a href="#viewer">The photo viewer and your library</a></li>
     <li><a href="#colours">Editing colours</a></li>
@@ -83,6 +84,7 @@
     <tr><th>Look name</th><td>Shows the current look. Tapping it opens a menu of all the looks, along with Compare looks, Customise layout and Settings.</td></tr>
     <tr><th>Flash</th><td>On or off. There is no automatic setting, so it never fires unexpectedly.</td></tr>
     <tr><th>RAW</th><td>Saves an Apple ProRAW file as well. See <a href="#saving">Saving and originals</a>.</td></tr>
+    <tr><th>SR</th><td>Turns <a href="#super-resolution">super resolution</a> on or off. Not on the screen to begin with; add it in the layout editor.</td></tr>
     <tr><th>+ORIG</th><td>Keeps Apple's original alongside the graded photograph.</td></tr>
     <tr><th>Lenses</th><td>Focal lengths from 13 to 200 mm. Tapping the selected one again locks to that lens.</td></tr>
     <tr><th>Exposure</th><td>A scale from −2 to +2 stops in thirds. Drag it, and double-tap to return to zero.</td></tr>
@@ -154,6 +156,17 @@
   <h2 id="more">Flash, timer and the rest</h2>
   <p>The flash is either on or off. The timer cycles through off, 3 seconds and 10 seconds, and counts down on the picture. The aspect guides mark out 4:3, 3:2, 16:9 and 1:1 frames, although the photograph itself is saved at the full 4:3 frame for cropping later. White balance can be automatic or fixed at 5600K, 4300K or 3200K. The grid, histogram and level are added in the layout editor, and the histogram and level only run while they are on the screen.</p>
 
+  <h2 id="super-resolution">Super resolution</h2>
+  <p>Super resolution merges a short burst of photographs into one larger picture. Switch it on in Settings, under Capture, or add the SR button to your layout. With it on, each press of the shutter takes eight photographs one after another, and a counter on the picture asks you to hold still while it does. There is no need for a tripod, and a tripod would in fact defeat it: the method depends on the small movements of your hands between one photograph and the next.</p>
+  <p>The eight are then lined up and merged into a picture half as large again in each direction. The main camera's 48 megapixels become 108, and a lens that gives 12 megapixels becomes 48. The burst is always taken at the most the lens can give, whatever resolution is set, and while super resolution is on CubeCam keeps to the lens you have chosen and doesn't switch cameras by itself.</p>
+  <h3>Waiting for the picture</h3>
+  <p>Merging takes a while, up to a minute for the largest pictures. A note at the bottom of the viewfinder says so while it is going on, and asks you to keep CubeCam open. You can carry on taking photographs in the meantime. If you do leave the app, nothing is lost: the eight photographs are kept, and the merge starts again when you come back.</p>
+  <h3>What to expect</h3>
+  <p>The gain is real but modest. Fine detail holds together better and the picture is cleaner, with less of the blotchiness an ordinary photograph shows when you zoom right in. It works best on things that stay put. Anything that moves during the burst, such as people walking or leaves in the wind, is taken from a single photograph, so it looks as it would in an ordinary shot and gains nothing. A photograph that was blurred by a jolt is left out of the merge.</p>
+  <h3>Sharpening</h3>
+  <p>With super resolution on, Settings shows a Sharpening choice of Off, Light or Strong, which sets how crisp the merged picture is made. Light is the default and suits most pictures.</p>
+  <p>Super resolution doesn't fire the flash or save a ProRAW file, and the files are large: a 108 megapixel photograph with grain can be several times the size of a 48 megapixel one.</p>
+
   <h2 id="saving">Saving and originals</h2>
   <p>Photographs are saved to your library as HEIF files, the right way up for however the phone was held. Each shot is kept safely inside CubeCam until it has reached the library, so closing the app straight after taking a picture doesn't lose it; it simply finishes saving the next time CubeCam opens.</p>
   <h3>Keeping the original</h3>
@@ -204,7 +217,7 @@
   <p>With CubeCam chosen for Camera Control, the Lock Screen or the Action button, it opens immediately on a locked iPhone, with your look, layout and settings. iOS doesn't allow any camera app to save to the photo library while the phone is locked, so photographs taken this way are kept safely and moved into the library the next time CubeCam is opened with the phone unlocked. The last-photo button on the locked camera asks you to unlock the phone and opens CubeCam.</p>
 
   <h2 id="settings">Settings</h2>
-  <p>Settings opens with the camera layout, followed by the instructions for using CubeCam as your camera. The Look section holds the default look, Compare looks, Amount, and the grain controls, and Your looks is where <a href="#your-looks">imported looks</a> are added and managed. Capture has ProRAW, the resolution and what a tap on the screen does. Saving controls how the original is kept. Focus has focus peaking and its colour, and Lenses has the lens lock and whether the main camera starts at 24, 28 or 35 mm.</p>
+  <p>Settings opens with the camera layout, followed by the instructions for using CubeCam as your camera. The Look section holds the default look, Compare looks, Amount, and the grain controls, and Your looks is where <a href="#your-looks">imported looks</a> are added and managed. Capture has ProRAW, the resolution, <a href="#super-resolution">super resolution</a> and what a tap on the screen does. Saving controls how the original is kept. Focus has focus peaking and its colour, and Lenses has the lens lock and whether the main camera starts at 24, 28 or 35 mm.</p>
 
   <h2 id="suggestions">Some suggestions</h2>
   <p>For street photography, the Minimal layout with the lens locked at 28 or 35 mm keeps the screen clear and the drawing consistent. For slower, more careful work, the Manual layout brings the histogram, the level, focus peaking and the exposure lock together. Keeping originals as revertible edits costs nothing and leaves every look open to reconsider later. When choosing a default look, try them on a scene with skin and a few strong colours, since that is where the differences show. In black and white, Benacre suits soft, open light, and Happisburgh suits strong light and graphic subjects. In the colour editor, small moves go a long way: a sky turned a few degrees towards cyan, or foliage made a little less rich, often does more than any look.</p>
