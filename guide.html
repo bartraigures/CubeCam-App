@@ -106,7 +106,7 @@
   <p>Tapping the picture focuses and meters on that point. As well as the shutter button, Camera Control and the volume buttons take a picture.</p>
 
   <h2 id="looks">Looks and grain</h2>
-  <p>There are nine looks. Covehithe, Shingle Street, Sidestrand, Hemmick, Pednvounder, Pentreath and Trimingham are colour looks; Benacre and Happisburgh are black and white, the first soft and low in contrast and the second deep and contrasty. The <a href="./">home page</a> describes each one and lets you compare them on two photographs.</p>
+  <p>There are ten looks. Covehithe, Shingle Street, Sidestrand, Hemmick, Pednvounder, Pentreath and Trimingham are colour looks; Benacre, Happisburgh and Salthouse are black and white: Benacre is soft and low in contrast, Happisburgh deep and contrasty, and Salthouse harder still, as if through a red filter. The <a href="./">home page</a> describes each one and lets you compare them on several photographs.</p>
   <h3>Choosing a look</h3>
   <p>A look can be chosen from the look strip, from the menu that opens when the look's name is tapped, or with Camera Control by light-pressing, sliding to Look and then sliding through the names. Compare looks, in the same menu and in Settings, shows a large before-and-after of the live view so that the looks can be tried on the actual scene in front of you.</p>
   <h3>How strong the looks are</h3>
@@ -115,7 +115,7 @@
   <p>The grain is a fine speck at each pixel, heaviest in the mid-tones, which keeps it crisp when you zoom in and subtle at normal viewing size. The black and white looks have neutral grey grain with no colour in it. Settings has a switch to turn grain off, a Grain amount slider from 0 to 200% (where 100% is each look's own amount), and a choice of whether grain is shown in the viewfinder.</p>
 
   <h2 id="your-looks">Importing your own looks</h2>
-  <p>As well as its own nine looks, CubeCam can use any 3D LUT saved as a .cube file. An imported look works just like the built-in ones: in the viewfinder, on saved photographs, in the photo viewer and with the phone locked.</p>
+  <p>As well as its own ten looks, CubeCam can use any 3D LUT saved as a .cube file. An imported look works just like the built-in ones: in the viewfinder, on saved photographs, in the photo viewer and with the phone locked.</p>
   <h3>Where to find them</h3>
   <p>CubeCam's own extra looks are on the <a href="looks.html">Looks</a> page, free to download. Another good place to look is the <a href="https://gmic.eu/color_presets/bw_sample_11.html#browse">G'MIC colour presets</a>, a free collection of over a thousand looks with a before-and-after for each, including a strong set of black and white ones. Each set can be downloaded as .cube files. The presets come from many different authors, so check a set's own terms if you want to use it for anything beyond your own photographs.</p>
   <h3>Adding one</h3>
@@ -125,7 +125,7 @@
     <li>CubeCam shows the look on whatever the camera is pointing at. Press and hold the picture to see it without the look.</li>
     <li>Give it a name, check the Input, set the Strength and Grain, and tap Save.</li>
   </ol>
-  <p>Input tells CubeCam what kind of picture the LUT was made for. Most creative looks, including the G'MIC presets, are made for finished pictures, so leave it on Standard picture. Choose one of the log formats only if the LUT was made for log footage from a particular camera; CubeCam then converts the photo to that format first. Strength mixes the look with Apple's picture, and 70 to 85% is often nicer than full strength. An imported look can be renamed, changed or deleted later from the same list in Settings, and photographs already taken with it keep their look.</p>
+  <p>Input tells CubeCam what kind of picture the LUT was made for. Most creative looks, including the G'MIC presets, are made for finished pictures, so leave it on Standard picture. Choose one of the log formats only if the LUT was made for log footage from a particular camera; CubeCam then converts the photo to that format first. Strength mixes the look with Apple's picture, and 70 to 85% is often nicer than full strength. A black and white LUT is the exception: it is always used in full and has no Strength to set, because mixing any of Apple's picture back in would bring some of its colour with it. An imported look can be renamed, changed or deleted later from the same list in Settings, and photographs already taken with it keep their look.</p>
 
   <h2 id="lenses">Lenses and lens lock</h2>
   <p>On an iPhone 17 Pro, 13 mm is the ultra-wide camera, 24 mm is the main camera, and 28, 35 and 48 mm are taken from the main camera's sensor. 100 mm is the telephoto camera, and 200 mm is taken from the telephoto's sensor. Other iPhones offer whichever of these their cameras allow.</p>
@@ -189,8 +189,16 @@
     <li><strong>Adjust</strong> has exposure, contrast, shadows, warmth, saturation and grain. Double-tapping a slider's row returns it to zero.</li>
     <li><strong>Info</strong> shows the look, amount and grain the photograph was saved with, together with the camera, focal length, aperture, shutter speed, ISO, exposure compensation, flash, size and date.</li>
   </ul>
-  <p>Any change brings up Save and Cancel. Save writes the change into the photograph as a new revertible edit; each time, iOS asks for permission for CubeCam to modify the photo, which is how Apple protects photographs from apps. Revert to original goes back to Apple's original, and there are also buttons to share the photograph and to open it in Photos. The button with a hexagon of dots, at the top, opens the photograph in the <a href="#colours">colour editor</a>.</p>
+  <p>Any change brings up Save and Cancel. Save writes the change into the photograph as a new revertible edit; each time, iOS asks for permission for CubeCam to modify the photo, which is how Apple protects photographs from apps. Revert to original goes back to Apple's original, and Open in Photos shows the photograph there. The share button, at the top, shares the photograph or <a href="#export">exports a copy</a> of it. The button with a hexagon of dots, at the top, opens the photograph in the <a href="#colours">colour editor</a>.</p>
   <p>Changing the look needs Apple's original, so it is only possible for photographs saved with Keep original switched on. Photographs saved without it can still be adjusted.</p>
+  <h3 id="export">Exporting a copy</h3>
+  <p>Export a copy, under the share button, makes a new photograph from the one on show and leaves the first as it was. It works from the photograph as saved, so save or cancel any change you are part-way through first.</p>
+  <ul>
+    <li><strong>Size</strong> is the longest side of the copy: full size, or 4096, 3000, 2048 or 1080 pixels. A photograph is never made bigger than it is, and the size the copy will come out at is shown under the preview.</li>
+    <li><strong>File type</strong> is JPEG, which everything accepts, or HEIF, which is smaller.</li>
+    <li><strong>Square border</strong> sets the whole photograph, with nothing cropped, on an exactly square background in white, off-white or black. Width is how much border there is beside the photograph's long side, 2% to start with. With a border, Size is the side of the square.</li>
+  </ul>
+  <p>Save to Photos adds the copy to your library as a photograph of its own, and Share sends the file to another app. CubeCam remembers the choices for next time. The copy doesn't join CubeCam's photographs, since it has no original underneath for the looks to work from.</p>
   <h3>Photographs from your library</h3>
   <p>CubeCam can also work on photographs it didn't take. The button with a photo and a plus sign, at the top of the viewer, opens your library; the photograph you choose joins CubeCam's photographs, at the front, as if CubeCam had taken it. It starts with no look, and from there it works like any other: try the looks on it, adjust it, edit its colours, and save. As with CubeCam's own photographs, the change is saved as a revertible edit, so Revert in the Photos app always brings back the photograph as it was. The None look, at the start of the Look panel, takes a photograph back to no look at all.</p>
   <h3>Sharing to CubeCam from other apps</h3>
