@@ -3,24 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>More looks for CubeCam</title>
-<meta name="description" content="Extra looks for CubeCam, free to download as .cube files. They also work in any app that takes a 3D LUT.">
+<title>The looks, to preview and download</title>
+<meta name="description" content="Every CubeCam look, with photographs to try them on, free to download as .cube files. They work in any app that takes a 3D LUT.">
 <link rel="icon" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="site.css">
 <style>
-  .look { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 44px; align-items: start; }
-  .look + .look { margin-top: 64px; }
-  .look h2 { margin-top: 0; }
-  .look .scenes { display: flex; gap: 8px; margin-top: 12px; }
-  .look .scenes button { width: 54px; height: 72px; padding: 0; border: 2px solid transparent; border-radius: 4px; overflow: hidden; background: none; cursor: pointer; }
-  .look .scenes button[aria-pressed="true"] { border-color: #F2A27C; }
-  .look .scenes img { width: 100%; height: 100%; object-fit: cover; }
+  .look-list .more { display: none; padding: 0 0 16px; }
+  .look-list li.on .more { display: block; }
+  .look-list .more p { font-size: 16px; line-height: 1.5; margin: 0 0 10px; color: var(--dark-quiet); }
+  .look-list button { padding-bottom: 10px; }
+  .look-list .scene-off { display: none; }
   .download { display: inline-block; font: 600 16px var(--sans); background: var(--dark-ink); color: var(--dark) !important; text-decoration: none;
-    padding: 10px 18px; border-radius: 8px; margin: 6px 0 4px; }
+    padding: 10px 18px; border-radius: 8px; margin: 2px 0 4px; }
+  .download.quiet { background: none; color: var(--dark-ink) !important; border: 1px solid #4A4843; }
   .download:focus-visible { outline: 2px solid #F2A27C; outline-offset: 3px; }
   .filenote { font: 14px var(--sans); color: var(--dark-quiet); }
-  @media (max-width: 820px) { .look { grid-template-columns: 1fr; gap: 20px; } }
+  .all { margin-top: 28px; }
 </style>
 </head>
 <body>
@@ -30,58 +29,87 @@
 </header>
 <main>
   <section class="text measure gutter" style="padding-bottom: 32px">
-    <h1 style="font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 3.8rem); margin: 24px 0 0.4em; letter-spacing: -0.02em;">More looks</h1>
-    <p>CubeCam comes with ten looks. These are extra ones, made the same way, free to download and use. Each is a .cube file, so it works in CubeCam and in any other app that takes a 3D LUT, such as photo and video editors on a computer.</p>
-    <p>To add one to CubeCam, download it on your iPhone, then in CubeCam go to Settings and, under Your looks, tap Import a .cube file. Leave Input on Standard picture. The <a href="guide.html#your-looks">guide</a> has the details.</p>
+    <h1 style="font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 3.8rem); margin: 24px 0 0.4em; letter-spacing: -0.02em;">The looks</h1>
+    <p>Here is every CubeCam look: the ten that come with the app, and extra ones made the same way. Choose one to see it on a photograph, and drag across the picture to compare it with the camera's own version.</p>
+    <p>All of them are free to download. Each is a .cube file, so it works in any app that takes a 3D LUT, such as photo and video editors on a computer.</p>
   </section>
 
-  <section class="darkroom gutter">
-    <div class="inner">
-      <article class="look" id="lansallos">
-        <div class="picture">
-          <div class="compare" data-look="lansallos" aria-label="The same photograph before and after Lansallos. Drag across it to compare.">
-            <img draggable="false" class="before" src="img/looks/woods-original.jpg" alt="The photograph as the camera made it">
-            <div class="after"><img draggable="false" src="img/extra/lansallos-woods.jpg" alt="The same photograph with Lansallos"></div>
-            <div class="bar"></div>
-            <span class="label l">As shot</span><span class="label r">Lansallos</span>
-          </div>
-          <div class="scenes" aria-label="Photographs">
-            <button data-scene="woods" aria-pressed="true" aria-label="Photograph: woods"><img src="img/looks/woods-original.jpg" alt=""></button>
-            <button data-scene="leaves" aria-pressed="false" aria-label="Photograph: leaves"><img src="img/looks/leaves-original.jpg" alt=""></button>
-            <button data-scene="tree" aria-pressed="false" aria-label="Photograph: tree"><img src="img/looks/tree-original.jpg" alt=""></button>
-          </div>
+  <section class="darkroom gutter" id="looks">
+    <div class="inner chooser">
+      <div class="picture">
+        <div class="compare" id="cmp" aria-label="The same photograph before and after. Drag across it to compare.">
+          <img draggable="false" id="cmpBefore" src="img/looks/tree-original.jpg" alt="The photograph as the camera made it">
+          <div class="after"><img draggable="false" id="cmpAfter" src="img/looks/tree-covehithe.jpg" alt="The same photograph with the chosen look"></div>
+          <div class="bar"></div>
+          <span class="label l">As shot</span><span class="label r" id="cmpLabel">Covehithe</span>
         </div>
-        <div>
-          <h2>Lansallos</h2>
-          <p>For woods and autumn. Greens go quiet, towards olive and sage, so the turning leaves and the bracken glow against them. The shadows are deep but soft, and the light is creamy rather than white.</p>
-          <p>It's a strong look, so in CubeCam try it at around 70 to 85% to start with.</p>
-          <a class="download" href="looks/Lansallos.cube" download>Download Lansallos.cube</a>
-          <p class="filenote">33-point 3D LUT for finished pictures (sRGB / Rec.709), about 1 MB.</p>
+        <p class="compare-note">Drag across the picture to compare it with the camera's own version, on the left.</p>
+        <div class="scenes" id="scenes" aria-label="Photographs"></div>
+      </div>
+      <div>
+        <ol class="look-list" id="list" aria-label="Looks"></ol>
+        <div class="all">
+          <a class="download quiet" href="looks/CubeCam-looks.zip" download>Download them all (.zip)</a>
+          <p class="filenote">Eleven .cube files, about 4 MB.</p>
         </div>
-      </article>
+      </div>
     </div>
   </section>
 
   <section class="text measure gutter" style="padding-top: 40px">
+    <h2>Using them</h2>
+    <p>The ten that come with CubeCam are already in the app, so there is nothing to add. The files here are for using the same looks elsewhere. Each one is the look as CubeCam applies it at 100%, without the grain, which the app adds separately.</p>
+    <p>To add an extra look to CubeCam, download it on your iPhone, then in CubeCam go to Settings and, under Your looks, tap Import a .cube file. Leave Input on Standard picture. The <a href="guide.html#your-looks">guide</a> has the details.</p>
+    <p>Every file is a 33-point 3D LUT for finished pictures (sRGB / Rec.709), about 1 MB.</p>
     <p>Each look here is made for CubeCam and is ours to give away. Use them on your own photographs and videos however you like; please don't sell them or pass them off as your own.</p>
   </section>
 </main>
 <footer class="gutter"><span>CubeCam</span><span><a href="./">Home</a> · <a href="looks.html">Looks</a> · <a href="guide.html">Guide</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></span></footer>
 <script>
-document.querySelectorAll('.look').forEach(look => {
-  const cmp = look.querySelector('.compare'), name = cmp.dataset.look;
-  const before = cmp.querySelector('img.before'), after = cmp.querySelector('.after img');
-  look.querySelector('.scenes').addEventListener('click', e => {
-    const b = e.target.closest('[data-scene]'); if (!b) return;
-    before.src = `img/looks/${b.dataset.scene}-original.jpg`;
-    after.src = `img/extra/${name}-${b.dataset.scene}.jpg`;
-    look.querySelectorAll('.scenes button').forEach(x => x.setAttribute('aria-pressed', x === b));
+// id, name, tag, description, download, pictures folder, photographs (none given: all of them)
+const LOOKS = [
+  ["covehithe", "Covehithe", "", "A classic warm print, with clean, deep blacks, rich reds and a little warmth in the highlights. A good default."],
+  ["shingle-street", "Shingle Street", "", "Silvery and restrained, with the blue taken out of the sky. It suits hard summer light."],
+  ["sidestrand", "Sidestrand", "", "Leans towards amber with the colour eased back, which works well for evenings, streetlights and interiors."],
+  ["hemmick", "Hemmick", "", "A faint yellow-green in the mid-tones, reminiscent of colour film from the late seventies."],
+  ["pednvounder", "Pednvounder", "", "Warm and rich, with deep reds and oranges: the most obviously filmic of the colour looks."],
+  ["pentreath", "Pentreath", "", "Cooler, with cyan in the shadows and calm greens, which flatters the sea and overcast days."],
+  ["trimingham", "Trimingham", "", "Low contrast and muted, and kind to skin. The quietest of the set."],
+  ["benacre", "Benacre", "", "Black and white with low contrast, soft and silvery, with the shadows left open."],
+  ["happisburgh", "Happisburgh", "", "Black and white with real depth: rich blacks, crisp mid-tones, and skies darkened slightly, as a yellow filter would."],
+  ["salthouse", "Salthouse", "", "Black and white at its hardest, as if through a red filter: skin comes out bright, and skies and foliage go dark."],
+  ["lansallos", "Lansallos", "extra, not in the app", "For woods and autumn. Greens go quiet, towards olive and sage, so the turning leaves and the bracken glow against them. It's a strong look, so in CubeCam try it at around 70 to 85% to start with.", "img/extra", ["woods", "leaves", "tree"]],
+];
+const SCENES = ["tree", "woods", "leaves", "beach", "field"];
+let scene = "tree", look = location.hash.slice(1);
+if (!LOOKS.some(l => l[0] === look)) look = "covehithe";
+const $ = id => document.getElementById(id);
+const file = name => `looks/${name.replace(/ /g, "-")}.cube`;
+const picture = (l, sc) => `${l[4] || "img/looks"}/${l[4] ? `${l[0]}-${sc}` : `${sc}-${l[0]}`}.jpg`;
+function render() {
+  const l = LOOKS.find(x => x[0] === look), has = l[5] || SCENES;
+  if (!has.includes(scene)) scene = has[0];   // an extra look has fewer photographs
+  $("cmpBefore").src = `img/looks/${scene}-original.jpg`;
+  $("cmpAfter").src = picture(l, scene);
+  $("cmpLabel").textContent = l[1];
+  document.querySelectorAll("#scenes button").forEach(b => {
+    b.setAttribute("aria-pressed", b.dataset.scene === scene);
+    b.classList.toggle("scene-off", !has.includes(b.dataset.scene));
   });
-  const cut = e => { const r = cmp.getBoundingClientRect(); cmp.style.setProperty('--cut', `${Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100))}%`); };
-  cmp.addEventListener('pointerdown', e => { e.preventDefault(); cmp.setPointerCapture(e.pointerId); cut(e); cmp.onpointermove = cut; });
-  cmp.addEventListener('dragstart', e => e.preventDefault());
-  cmp.addEventListener('pointerup', () => { cmp.onpointermove = null; });
-});
+  $("list").innerHTML = LOOKS.map(([k, n, c, d]) =>
+    `<li class="${k === look ? "on" : ""}"><button data-look="${k}" aria-pressed="${k === look}"><span class="n">${n}</span>${c ? `<span class="c">${c}</span>` : ""}</button>` +
+    `<div class="more"><p>${d}</p><a class="download" href="${file(n)}" download>Download ${n.replace(/ /g, "-")}.cube</a></div></li>`).join("");
+  for (const sc of has) { const im = new Image(); im.src = picture(l, sc); }
+}
+$("list").addEventListener("click", e => { const b = e.target.closest("[data-look]"); if (b) { look = b.dataset.look; history.replaceState(null, "", "#" + look); render(); } });
+$("scenes").innerHTML = SCENES.map(sc => `<button data-scene="${sc}" aria-label="Photograph: ${sc}"><img src="img/looks/${sc}-original.jpg" alt="" draggable="false"></button>`).join("");
+$("scenes").addEventListener("click", e => { const b = e.target.closest("[data-scene]"); if (b) { scene = b.dataset.scene; render(); } });
+const cmp = $("cmp");
+const cut = e => { const r = cmp.getBoundingClientRect(); cmp.style.setProperty("--cut", `${Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100))}%`); };
+cmp.addEventListener("pointerdown", e => { e.preventDefault(); cmp.setPointerCapture(e.pointerId); cut(e); cmp.onpointermove = cut; });
+cmp.addEventListener("dragstart", e => e.preventDefault());
+cmp.addEventListener("pointerup", () => { cmp.onpointermove = null; });
+render();
 </script>
 </body>
 </html>
